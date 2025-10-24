@@ -35,7 +35,7 @@ export const SearchBar = ({ initialQuery = '', onSubmit }: SearchBarProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative grid gap-3 rounded-2xl bg-white p-4 shadow-card transition duration-normal ease-friendly lg:grid-cols-[2fr,1fr,auto]"
+      className="relative grid gap-3 rounded-2xl bg-white p-4 shadow-card transition duration-normal ease-friendly lg:grid-cols-[2fr_1fr_auto]"
       aria-label="Recherche de coiffeuses kid-friendly"
     >
       <label className="flex items-center gap-3 rounded-2xl border border-border bg-white px-4 py-3 focus-within:border-primary" htmlFor="search-city">

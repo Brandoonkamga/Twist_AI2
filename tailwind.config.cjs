@@ -17,6 +17,7 @@ module.exports = {
         muted: '#F5F5F5',
         text: '#0A0A0A',
         subtext: '#525252',
+        border: '#E5E7EB',
       },
       boxShadow: {
         card: '0 6px 24px rgba(0,0,0,0.08)',

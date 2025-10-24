@@ -1,14 +1,14 @@
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 
-export type TabsProps = {
-  value: string;
-  onChange?: (value: string) => void;
-  tabs: { value: string; label: ReactNode }[];
+export type TabsProps<T extends string = string> = {
+  value: T;
+  onChange?: (value: T) => void;
+  tabs: { value: T; label: ReactNode }[];
   className?: string;
 };
 
-export const Tabs = ({ value, onChange, tabs, className }: TabsProps) => (
+export const Tabs = <T extends string>({ value, onChange, tabs, className }: TabsProps<T>) => (
   <div className={clsx('flex flex-wrap gap-2', className)} role="tablist">
     {tabs.map((tab) => {
       const active = value === tab.value;

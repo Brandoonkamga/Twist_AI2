@@ -1,10 +1,10 @@
 import { Skeleton } from '../ui/skeleton';
-import { Comb } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export const SkeletonList = ({ count = 4 }: { count?: number }) => (
   <div className="space-y-4" role="status" aria-live="polite">
     <div className="flex items-center gap-2 text-subtext">
-      <Comb className="h-5 w-5 animate-spin text-primary" aria-hidden="true" />
+      <Loader2 className="h-5 w-5 animate-spin text-primary" aria-hidden="true" />
       <span>Préparation des meilleures coiffeuses...</span>
     </div>
     {Array.from({ length: count }).map((_, index) => (

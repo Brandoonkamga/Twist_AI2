@@ -8,7 +8,7 @@ import { Account } from './pages/Account';
 import { Dashboard } from './pages/Pro/Dashboard';
 import { Agenda } from './pages/Pro/Agenda';
 import { Wallet } from './pages/Pro/Wallet';
-import { RequireStylist } from './lib/guards';
+import { RequireStylist } from './components/auth/RequireStylist';
 
 export const App = () => (
   <Routes>

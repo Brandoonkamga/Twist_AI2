@@ -1,11 +1,5 @@
-import { ReactNode } from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuthStore } from '../state/auth.store';
+import type { User } from '../types';
 
-export const RequireStylist = ({ children }: { children: ReactNode }) => {
-  const role = useAuthStore((state) => state.user?.role);
-  if (role !== 'stylist') {
-    return <Navigate to="/" replace />;
-  }
-  return <>{children}</>;
+export const isStylist = (user: User | null): boolean => {
+  return user?.role === 'stylist';
 };

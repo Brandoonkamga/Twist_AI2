@@ -1,4 +1,4 @@
-import { Comb } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { Skeleton } from '../ui/skeleton';
 
 interface SkeletonListProps {
@@ -8,7 +8,7 @@ interface SkeletonListProps {
 export const SkeletonList: React.FC<SkeletonListProps> = ({ count = 3 }) => (
   <div className="flex flex-col gap-4" role="status" aria-live="polite">
     <div className="flex items-center gap-2 text-subtext">
-      <Comb className="h-4 w-4 animate-spin" aria-hidden />
+      <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
       <span>Préparation de la liste…</span>
     </div>
     {Array.from({ length: count }).map((_, index) => (

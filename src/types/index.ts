@@ -53,5 +53,6 @@ export type User = {
 
 export type SearchQuery = {
   city: string;
-  kidFriendlyOnly: boolean;
+  childAgeRange?: string;
+  kidFriendlyOnly?: boolean;
 };

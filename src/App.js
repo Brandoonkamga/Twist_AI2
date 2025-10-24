@@ -1,0 +1,22 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Suspense } from 'react';
+import { Route, Routes, Navigate, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import StylistProfile from './pages/StylistProfile';
+import BookingFlow from './pages/BookingFlow';
+import Auth from './pages/Auth';
+import Account from './pages/Account';
+import ProDashboard from './pages/Pro/Dashboard';
+import ProAgenda from './pages/Pro/Agenda';
+import ProWallet from './pages/Pro/Wallet';
+import { RequireStylist } from './lib/guards';
+import { ToastViewport } from './components/ui/toast';
+import { SkeletonList } from './components/common/SkeletonList';
+import { useI18n } from './i18n/I18nProvider';
+const Layout = ({ children }) => {
+    const { t, switchLocale, locale } = useI18n();
+    return (_jsxs("div", { className: "min-h-screen bg-gradient-to-br from-primary/5 via-white to-primary/10", children: [_jsx("header", { className: "sticky top-0 z-30 border-b border-muted/80 bg-white/90 backdrop-blur", children: _jsxs("div", { className: "mx-auto flex max-w-6xl items-center justify-between px-4 py-4", children: [_jsx(Link, { to: "/", className: "text-lg font-bold text-primary", "aria-label": "AfroConnect Home", children: "AfroConnect" }), _jsxs("nav", { className: "flex items-center gap-4 text-sm font-medium text-subtext", children: [_jsx(Link, { className: "hover:text-primary", to: "/", children: "Accueil" }), _jsx(Link, { className: "hover:text-primary", to: "/reservation", children: "R\u00E9servation" }), _jsx(Link, { className: "hover:text-primary", to: "/compte", children: "Mon compte" }), _jsx(Link, { className: "hover:text-primary", to: "/pro", children: "Espace Pro" }), _jsx("button", { type: "button", onClick: () => switchLocale(locale === 'fr-FR' ? 'en-GB' : 'fr-FR'), className: "rounded-full border border-muted/80 px-3 py-1 text-xs", children: locale === 'fr-FR' ? 'EN' : 'FR' })] })] }) }), _jsx("main", { className: "mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8", children: children }), _jsx("footer", { className: "border-t border-muted/80 bg-white/80", children: _jsxs("div", { className: "mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-subtext md:flex-row md:items-center md:justify-between", children: [_jsxs("p", { children: ["\u00A9 ", new Date().getFullYear(), " AfroConnect. Paiement s\u00E9curis\u00E9 & conformit\u00E9 RGPD."] }), _jsxs("div", { className: "flex gap-4", children: [_jsx("a", { href: "mailto:support@afroconnect.fr", className: "hover:text-primary", children: t('booking.confirmation.support') }), _jsx("a", { href: "#confidentialite", className: "hover:text-primary", children: "Politique de confidentialit\u00E9" })] })] }) }), _jsx(ToastViewport, {})] }));
+};
+const LoadingFallback = () => (_jsx("div", { className: "space-y-4", children: _jsx(SkeletonList, {}) }));
+const App = () => (_jsx(Suspense, { fallback: _jsx(LoadingFallback, {}), children: _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(Layout, { children: _jsx(Home, {}) }) }), _jsx(Route, { path: "/coiffeuses/:id", element: _jsx(Layout, { children: _jsx(StylistProfile, {}) }) }), _jsx(Route, { path: "/reservation", element: _jsx(Layout, { children: _jsx(BookingFlow, {}) }) }), _jsx(Route, { path: "/auth", element: _jsx(Layout, { children: _jsx(Auth, {}) }) }), _jsx(Route, { path: "/compte", element: _jsx(Layout, { children: _jsx(Account, {}) }) }), _jsx(Route, { path: "/pro", element: _jsx(Layout, { children: _jsx(RequireStylist, { children: _jsx(ProDashboard, {}) }) }) }), _jsx(Route, { path: "/pro/agenda", element: _jsx(Layout, { children: _jsx(RequireStylist, { children: _jsx(ProAgenda, {}) }) }) }), _jsx(Route, { path: "/pro/portefeuille", element: _jsx(Layout, { children: _jsx(RequireStylist, { children: _jsx(ProWallet, {}) }) }) }), _jsx(Route, { path: "*", element: _jsx(Navigate, { to: "/", replace: true }) })] }) }));
+export default App;

@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --friendly-radius: 1.5rem;
+  --friendly-duration: 300ms;
+  --friendly-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body {
+  @apply font-sans bg-muted text-text;
+}
+
+* {
+  transition: color var(--friendly-duration) var(--friendly-easing),
+    background-color var(--friendly-duration) var(--friendly-easing),
+    border-color var(--friendly-duration) var(--friendly-easing),
+    box-shadow var(--friendly-duration) var(--friendly-easing);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid theme('colors.primary');
+  outline-offset: 2px;
+}
